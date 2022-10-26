@@ -75,6 +75,7 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
+	
 CREATE TABLE LOJA(
 	cnpj integer PRIMARY KEY,
 	nome varchar(150),
