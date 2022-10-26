@@ -75,7 +75,65 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
-        (criação de tabelas, alterações, etc..) 
+CREATE TABLE LOJA(
+	cnpj integer PRIMARY KEY,
+	nome varchar(150),
+	telefone integer,
+	email varchar(150)
+);
+
+
+
+CREATE TABLE FORNECEDOR(
+	cnpj integer PRIMARY KEY,
+	nome_transportadora varchar(100),
+	telefone integer,
+	cep integer,
+	numero integer,
+	rua varchar(25),
+	bairro varchar(30)
+	
+);
+
+CREATE TABLE LOJA_FORNECEDOR(
+	FK_FORNECEDOR_cnpj integer,  
+	FK_LOJA_cnpj integer,
+	
+	FOREIGN KEY (FK_FORNECEDOR_cnpj)
+	REFERENCES FORNECEDOR(cnpj),
+	FOREIGN KEY (FK_LOJA_cnpj) 
+	REFERENCES LOJA(cnpj)
+);
+
+CREATE TABLE FUNCIONARIO(
+	codigo integer PRIMARY KEY,
+	nome varchar(170),
+	cpf integer,
+	rg integer,
+	data_contratacao date,
+	telefone integer
+);
+
+
+CREATE TABLE PRODUTO(
+	codigo integer PRIMARY KEY,
+	marca varchar(70),
+	preco float
+);
+
+CREATE TABLE VENDE(
+	FK_FUNCIONARIO_codigo integer, 
+	FK_PRODUTO_codigo integer, 
+	forma_pagamento varchar(50),
+	data_hora_venda timestamp,
+	
+	FOREIGN KEY (FK_FUNCIONARIO_codigo)
+	REFERENCES FUNCIONARIO(codigo),
+	FOREIGN KEY (FK_PRODUTO_codigo)
+	REFERENCES PRODUTO(codigo)
+	
+);
+
         
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
