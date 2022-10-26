@@ -24,7 +24,7 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> Um empresário buscando ter uma renda extra montou uma LOJA, para se organizar ele criou um sistema onde seriam armazenados as informações da LOJA como seu CNPJ, nome, telefone e  e-mail, também armazenou seus FORNECEDORES registrando seu CNPJ, nome da transportadora, telefone, cep, número, rua e bairro, sendo que a loja pode ter um ou vários fornecedores e o fornecedor fornecer uma ou várias lojas. Da mesma forma seus FUNCIONÁRIOS registrando seus códigos, nomes, cpf, rg, telefone e a data da contratação, esses funcionários VENDEM PRODUTOS que também serão registrados por marca, preço e código. Podendo um funcionário vender um ou vários produtos e um produto ser vendido uma ou várias vezes.
+> Um empresário buscando ter uma renda extra montou uma LOJA, para se organizar ele criou um sistema onde seriam armazenados as informações da LOJA como seu CNPJ, nome, telefone e  e-mail, também armazenou seus FORNECEDORES registrando seu CNPJ, nome da transportadora, telefone, cep, número, rua e bairro, sendo que a loja pode ter um ou vários fornecedores e o fornecedor pode fornecer para uma ou várias lojas. Da mesma forma seus FUNCIONÁRIOS registrando seus códigos, nomes, cpf, rg, telefone e a data da contratação, esses funcionários VENDEM PRODUTOS que também serão registrados por marca, preço e código. Podendo um funcionário vender um ou vários produtos e um produto ser vendido uma ou várias vezes.
 
    
 
