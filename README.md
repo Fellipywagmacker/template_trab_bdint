@@ -31,7 +31,21 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 ### 4.PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
 #### 4.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
+    
+    Além de gerenciar todos os processos realizados na empresa o sistema irá gerar relatórios analíticos, trazendo informações de seus fornecedores, dados cadastrais de seus funcionários, dados de seus produtos e informações sobre vendas realizadas. Portanto, o sistema proposto contribui com a organização e armazenagem de informações da empresa.
+    
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
+    
+. DADOS DA LOJA
+
+. INFORMAÇÕES SOBRE OS SEUS FORNECEDORES 
+
+. DADOS DE SEUS FUNCIONÁRIOS
+
+. IFORMAÇÕES SOBRE OS SEUS PRODUTOS 
+
+. RELATÓRIOS DE VENDAS REALIZADAS 
+
     
 > A Empresa DevCom precisa inicialmente dos seguintes relatórios:
 * Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
