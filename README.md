@@ -71,7 +71,8 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
         
     
 #### 5.1 Validação do Modelo Conceitual
-    [Grupo01]: [ Dara Mendes Botecchia, Fellipy Silva Pereira, Evelyn Pereira Otavio ]
+    [Grupo01]: [ ]
+    [Grupo02]: [ ]
 
 #### 5.2 Descrição dos dados 
     
