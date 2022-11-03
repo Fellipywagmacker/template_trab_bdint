@@ -72,9 +72,15 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
 #### 5.2 Descrição dos dados 
     
-    Loja: Tabela que armazena as informações relativas a loja <br>
-    CNPJ: Campo que armazena o número de Cadastro de Pessoa Jurídica da empresa.<br>
-
+Pessoa: Entidade na qual contém uma associação entre Pessoa Física e Pessoa Jurídica.<br>
+Pessoa Física: Inclui informações sobre cliente e funcionário. <br>
+Pessoa Jurídica: Inclui informações sobre Loja e Fornecedor.<br>
+Cliente: Campo que abrange dados sobre os clientes cadastrados.<br>
+Funcionário: Campo que abrange dados sobre os funcionários.<br>
+Compra: Contém dados sobre as compras realizadas.<br>
+Produto: Dados sobre os produtos.<br>
+Loja: Inclui informações sobre a loja.<br>
+Fornecedor: Campo que armazena informações sobre os fornecedores.<br>
 
 ### 6	MODELO LÓGICO<br>
         a) inclusão do esquema lógico do banco de dados
