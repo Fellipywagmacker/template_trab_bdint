@@ -61,7 +61,7 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
         e tuplas falsas (Aplicar os conceitos de normalização abordados).   
         
-![Alt text](conceitual_grupo.png "Modelo Conceitual")
+![Alt text](MODELO CONCEITUAL NOVO.png  "Modelo Conceitual")
     
     
         
