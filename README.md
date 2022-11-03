@@ -13,7 +13,7 @@ terceiro_componente_do_grupo:evelynpo59@gmail.com<br>
 Este documento contém a especificação do projeto do banco de dados <nome do projeto> 
 <br>e motivação da escolha realizada. <br>
 
-> A loja visa colaborar com o desenvolvimento socioprofissional dos seus colaboradores e acima da venda de produtos, entregar experiências diferenciadas para o seu público alvo. O sistema da loja tem como objetivo gerenciar todos os processos da organização, bem como controlar e gerar relatórios analíticos. Para que seja efetuado tal gerenciamento é realizado o cadastro de fornecedores, funcionários, produtos e vendas. De acordo com o gerenciamento nada sai e entra da loja sem que seja processado pelo sistema, desde mercadorias, valores, impostos, folhas de pagamento, aquisição de bens, investimentos, receita e despesas. O sistema promove uma gestão mais assertiva e confiável.
+> A loja visa colaborar com o desenvolvimento socioprofissional dos seus colaboradores e acima da venda de produtos, entregar experiências diferenciadas para o seu público alvo. O sistema da loja tem como objetivo gerenciar todos os processos da organização, bem como controlar e gerar relatórios analíticos. Para que seja efetuado tal gerenciamento é realizado o cadastro de  pessoa física como por exemplo: cliente, funcionário, compra, produto e Pessoa jurídica: loja, fornecedores, compra, produto. De acordo com o gerenciamento nada sai e entra da loja sem que seja processado pelo sistema, desde mercadorias, valores, impostos, folhas de pagamento, aquisição de bens, investimentos, receita e despesas. O sistema promove uma gestão mais assertiva e confiável.
  
 
 ### 3.MINI-MUNDO<br>
@@ -24,7 +24,7 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> Um empresário buscando ter uma renda extra montou uma LOJA, para se organizar ele criou um sistema onde seriam armazenados as informações da LOJA como seu CNPJ, nome, telefone e  e-mail, também armazenou seus FORNECEDORES registrando seu CNPJ, nome da transportadora, telefone, cep, número, rua e bairro, sendo que a loja pode ter um ou vários fornecedores e o fornecedor pode fornecer para uma ou várias lojas. Da mesma forma seus FUNCIONÁRIOS registrando seus códigos, nomes, cpf, rg, telefone e a data da contratação, esses funcionários VENDEM PRODUTOS que também serão registrados por marca, preço e código. Podendo um funcionário vender um ou vários produtos e um produto ser vendido uma ou várias vezes.
+> Um sistema gerencia várias LOJAS, para uma melhor organização foram distribuídos dados de PESSOA FISICA e PESSOA JURIDICA. Portanto, em PESSOA FISICA  foram armazenados as informações das seguintes entidades: CLIENTE ( codigo, nome, cpf, telefone), FUNCIONARIO ( codigo, nome, cpf, rg, data_de_contratacao, telefone), associados ao  o relacionamento COMPRA ( data_hora_compra, forma_de_pagamento) e conectado a entidade PRODUTO( marca, preco, codigo). Portanto, um cliente pode ser atendido por um ou vários funcionários e o funcionário pode atender um ou vários clientes, podendo comprar um ou vários produtos. Seguimos agora com as informações armazenadas em PESSOA JURIDICA com as seguintes entidades: LOJA ( CNPJ, nome, telefone, email, data_contratacao_servico), FORNECEDOR (CNPJ, nome_transportadora, endereço, telefone), associados ao  o relacionamento COMPRA ( data_hora_compra, forma_de_pagamento) e conectado a entidade PRODUTO( marca, preco, codigo). Sendo assim, uma loja pode ter um ou vários fornecedores e os fornecedores podem fornecer para uma ou várias lojas, podendo comprar um ou vários produtos. 
 
    
 
@@ -32,19 +32,15 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 #### 4.1 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
     
-    Além de gerenciar todos os processos realizados na empresa o sistema irá gerar relatórios analíticos, trazendo informações de seus fornecedores, dados cadastrais de seus funcionários, dados de seus produtos e informações sobre vendas realizadas. Portanto, o sistema proposto contribui com a organização e armazenagem de informações da empresa.
+    Além de gerenciar todos os processos realizados na empresa o sistema irá gerar relatórios analíticos, trazendo informações  de Pessoa física, Pessoa jurídica, dados de seus produtos e informações sobre vendas realizadas. Portanto, o sistema proposto contribui com a organização e armazenagem de informações da empresa.
     
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
     
-. DADOS DA LOJA
-
-. INFORMAÇÕES SOBRE OS SEUS FORNECEDORES 
-
-. DADOS DE SEUS FUNCIONÁRIOS
-
-. IFORMAÇÕES SOBRE OS SEUS PRODUTOS 
-
-. RELATÓRIOS DE VENDAS REALIZADAS 
+. Pessoa, sendo ela física ou jurídica.
+. Loja: CNPJ, nome, telefone, email, data de contratação de serviços da nossa empresa.
+. Dados de seus funcionários: Código, nome, cpf, data de contratação, telefone.
+. Informações de seus fornecedores: CNPJ, nome da transportadora, endereço, telefone.
+. Relatórios de vendas realizadas pelas lojas: Data e hora da compra, forma de pagamento, produto.
 
     
 > A Empresa DevCom precisa inicialmente dos seguintes relatórios:
