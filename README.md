@@ -36,11 +36,11 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
     
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
     
-. Pessoa, sendo ela física ou jurídica.
-. Loja: CNPJ, nome, telefone, email, data de contratação de serviços da nossa empresa.
-. Dados de seus funcionários: Código, nome, cpf, data de contratação, telefone.
-. Informações de seus fornecedores: CNPJ, nome da transportadora, endereço, telefone.
-. Relatórios de vendas realizadas pelas lojas: Data e hora da compra, forma de pagamento, produto.
+<br>. Pessoa, sendo ela física ou jurídica.<br>
+<br>. Loja: CNPJ, nome, telefone, email, data de contratação de serviços da nossa empresa.<br>
+<br>. Dados de seus funcionários: Código, nome, cpf, data de contratação, telefone.<br>
+<br>. Informações de seus fornecedores: CNPJ, nome da transportadora, endereço, telefone.<br>
+<br>. Relatórios de vendas realizadas pelas lojas: Data e hora da compra, forma de pagamento, produto.<br>
 
     
 > A Empresa DevCom precisa inicialmente dos seguintes relatórios:
