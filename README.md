@@ -61,7 +61,7 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
         Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
         e tuplas falsas (Aplicar os conceitos de normalização abordados).   
         
-![Alt text](novo_conceitual.png "Modelo Conceitual")
+![Alt text](Conceitual.png "Modelo Conceitual")
     
     
         
@@ -85,7 +85,7 @@ Fornecedor: Campo que armazena informações sobre os fornecedores.<br>
 ### 6	MODELO LÓGICO<br>
         a) inclusão do esquema lógico do banco de dados
         b) verificação de correspondencia com o modelo conceitual 
-![Alt text](novo_logico.png "Modelo Lógico")
+![Alt text](lógico.png "Modelo Lógico")
 
 ### 7	MODELO FÍSICO<br>
         a) inclusão das instruções de criacão das estruturas em SQL/DDL 
