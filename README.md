@@ -24,7 +24,7 @@ Descrição textual das regras de negócio definidas como um  subconjunto do mun
 cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
 gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
-> Um sistema gerencia várias LOJAS, para uma melhor organização foram distribuídos dados de PESSOA FISICA e PESSOA JURIDICA. Portanto, em PESSOA FISICA  foram armazenados as informações das seguintes entidades: CLIENTE ( codigo, nome, cpf, telefone), FUNCIONARIO ( codigo, nome, cpf, rg, data_de_contratacao, telefone), associados ao  o relacionamento COMPRA ( data_hora_compra, forma_de_pagamento) e conectado a entidade PRODUTO( marca, preco, codigo). Portanto, um cliente pode ser atendido por um ou vários funcionários e o funcionário pode atender um ou vários clientes, podendo comprar um ou vários produtos. Seguimos agora com as informações armazenadas em PESSOA JURIDICA com as seguintes entidades: LOJA ( CNPJ, nome, telefone, email, data_contratacao_servico), FORNECEDOR (CNPJ, nome_transportadora, endereço, telefone), associados ao  o relacionamento COMPRA ( data_hora_compra, forma_de_pagamento) e conectado a entidade PRODUTO( marca, preco, codigo). Sendo assim, uma loja pode ter um ou vários fornecedores e os fornecedores podem fornecer para uma ou várias lojas, podendo comprar um ou vários produtos. 
+> Um sistema gerencia várias LOJAS, para uma melhor organização foram distribuídos dados de PESSOA FISICA e PESSOA JURIDICA. Portanto, em PESSOA FISICA foram armazenados as informações das seguintes entidades: CLIENTE ( codigo, nome, cpf, telefone), FUNCIONARIO ( codigo, nome, cpf, rg, data_de_contratacao, telefone), associados ao o relacionamento COMPRA ( data_hora_compra, quantidade) e conectado a entidade PRODUTO( marca, preco, codigo). Portanto, um cliente pode comprar um ou vários produtos e o funcionário pode vender um ou vários produtos para os clientes. Seguimos agora com as informações armazenadas em PESSOA JURIDICA com as seguintes entidades: LOJA ( CNPJ, nome, telefone, email), FORNECEDOR (CNPJ, nome_transportadora, endereço, telefone), associados ao o relacionamento FORNECER ( data_hora_compra, forma_de_pagamento, quantidade) e conectado a entidade PRODUTO( marca, preco, codigo). Sendo assim, uma loja pode ter um ou vários fornecedores e os fornecedores podem fornecer para uma ou várias lojas, podendo comprar um ou vários produtos. 
 
    
 
@@ -37,35 +37,18 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
     b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
     
 . Pessoa, sendo ela física ou jurídica.<br>
-. Loja: CNPJ, nome, telefone, email, data de contratação de serviços da nossa empresa.<br>
+. Loja: CNPJ, nome, telefone, email.<br>
 . Dados de seus funcionários: Código, nome, cpf, data de contratação, telefone.<br>
 . Informações de seus fornecedores: CNPJ, nome da transportadora, endereço, telefone.<br>
 . Relatórios de vendas realizadas pelas lojas: Data e hora da compra, forma de pagamento, produto.<br>
 
     
-> A Empresa DevCom precisa inicialmente dos seguintes relatórios:
-* Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
-* Relatório relativo aos os supervisores e supervisionados. O resultado deve conter o nome do supervisor e nome do supervisionado além da quantidade total de horas que cada supervisionado tem alocada aos projetos existentes na empresa.
-* Relatorio que mostre para cada linha obtida o nome do departamento, o valor individual de cada salario existente no  departamento e a média geral de salarios dentre todos os empregados. Os resultados devem ser apresentados ordenados por departamento.
-* Relatório que mostre as informações relacionadas a todos empregados de empresa (sem excluir ninguém). As linhas resultantes devem conter informações sobre: rg, nome, salario do empregado, data de início do salario atual, nomes dos projetos que participa, quantidade de horas e localização nos referidos projetos, numero e nome dos departamentos aos quais está alocado, informações do historico de salário como inicio, fim, e valores de salarios antigos que foram inclusos na referida tabela (caso possuam informações na mesma), além de todas informações relativas aos dependentes. 
->> ##### Observações: <br> a) perceba que este relatório pode conter linhas com alguns dados repetidos (mas não todos). <br>  b) para os empregados que não possuirem alguma destas informações o valor no registro deve aparecer sem informação/nulo. 
-* Relatório que obtenha a frequencia absoluta e frequencia relativa da quantidade de cpfs únicos no relatório anterior. Apresente os resultados ordenados de forma decrescente pela frequencia relativa.
 
  ### 5.MODELO CONCEITUAL<br>
-    A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
-    B) O mínimo de entidades do modelo conceitual pare este trabalho será igual a 5 e o Máximo 7.
-        * informe quais são as 3 principais entidades do sistema em densenvolvimento<br>(se houverem mais de 3 entidades, pense na importância da entidade para o sistema)       
-    C) Principais fluxos de informação/entidades do sistema (mínimo 3). <br>Dica: normalmente estes fluxos estão associados as tabelas que conterão maior quantidade de dados 
-    D) Qualidade e Clareza
-        Garantir que a semântica dos atributos seja clara no esquema (nomes coerentes com os dados).
-        Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
-        e tuplas falsas (Aplicar os conceitos de normalização abordados).   
-        
+       
 ![Alt text](Conceitual_grupo.png "Modelo Conceitual")
     
-    
-        
-    
+       
 #### 5.1 Validação do Modelo Conceitual
     [Grupo01]: [ ]
     [Grupo02]: [ ]
@@ -82,82 +65,215 @@ Produto: Dados sobre os produtos.<br>
 Loja: Inclui informações sobre a loja.<br>
 Fornecedor: Campo que armazena informações sobre os fornecedores.<br>
 
-### 6	MODELO LÓGICO<br>
-        a) inclusão do esquema lógico do banco de dados
-        b) verificação de correspondencia com o modelo conceitual 
+### 6 MODELO LÓGICO<br>
+
 ![Alt text](Lógico_grupo.png "Modelo Lógico")
 
-### 7	MODELO FÍSICO<br>
-        a) inclusão das instruções de criacão das estruturas em SQL/DDL 
+### 7 MODELO FÍSICO<br>
+	
+CREATE TABLE PESSOA(
+codigo integer,
+nome varchar(80)
+);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 CREATE TABLE LOJA(
-	cnpj integer PRIMARY KEY,
-	nome varchar(150),
-	telefone integer,
-	email varchar(150)
+cnpj integer PRIMARY KEY,
+nome varchar(150),
+telefone integer,
+email varchar(150)
 );
-
-
-
+  
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 CREATE TABLE FORNECEDOR(
-	cnpj integer PRIMARY KEY,
-	nome_transportadora varchar(100),
-	telefone integer,
-	cep integer,
-	numero integer,
-	rua varchar(25),
-	bairro varchar(30)
-	
+cnpj integer PRIMARY KEY,
+nome_transportadora varchar(100),
+telefone integer,
+cep integer,
+numero integer,
+rua varchar(25),
+bairro varchar(30)
 );
-
-CREATE TABLE LOJA_FORNECEDOR(
-	FK_FORNECEDOR_cnpj integer,  
-	FK_LOJA_cnpj integer,
 	
-	FOREIGN KEY (FK_FORNECEDOR_cnpj)
-	REFERENCES FORNECEDOR(cnpj),
-	FOREIGN KEY (FK_LOJA_cnpj) 
-	REFERENCES LOJA(cnpj)
-);
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 CREATE TABLE FUNCIONARIO(
-	codigo integer PRIMARY KEY,
-	nome varchar(170),
-	cpf integer,
-	rg integer,
-	data_contratacao date,
-	telefone integer
+codigo integer PRIMARY KEY,
+nome varchar(170),
+cpf integer,
+rg integer,
+data_contratacao date,
+telefone integer
 );
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE TABLE CLIENTE(
+codigo integer PRIMARY KEY,
+nome varchar(80),
+cpf integer,
+telefone integer
+)
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 CREATE TABLE PRODUTO(
-	codigo integer PRIMARY KEY,
-	marca varchar(70),
-	preco float
+codigo integer PRIMARY KEY,
+marca varchar(70),
+preco float
+);
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE TABLE LOJA_FORNECEDOR(
+FK_LOJA_cnpj integer,
+FK_FORNECEDOR_cnpj integer,
+FK_PRODUTO_codigo integer,
+data_hora_compra timestamp,
+forma_de_pagamento varchar(20),
+qtd integer,
+
+FOREIGN KEY(FK_LOJA_cnpj)
+REFERENCES LOJA(cnpj),
+FOREIGN KEY(FK_FORNECEDOR_cnpj)
+REFERENCES FORNECEDOR(cnpj),
+FOREIGN KEY(FK_PRODUTO_codigo)
+REFERENCES PRODUTO(codigo)
+);
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE TABLE CLIENTE_FUNCIONARIO(
+FK_FUNCIONARIO_codigo integer,
+FK_CLIENTE_codigo integer,
+FK_PRODUTO_codigo integer,
+forma_de_pagamento varchar(20),
+qtd integer,
+
+FOREIGN KEY (FK_FUNCIONARIO_codigo)
+REFERENCES FUNCIONARIO(codigo),
+FOREIGN KEY (FK_CLIENTE_codigo)
+REFERENCES CLIENTE(codigo),
+FOREIGN KEY (FK_PRODUTO_codigo)
+REFERENCES PRODUTO(codigo)
 );
 
-CREATE TABLE VENDE(
-	FK_FUNCIONARIO_codigo integer, 
-	FK_PRODUTO_codigo integer, 
-	forma_pagamento varchar(50),
-	data_hora_venda timestamp,
-	
-	FOREIGN KEY (FK_FUNCIONARIO_codigo)
-	REFERENCES FUNCIONARIO(codigo),
-	FOREIGN KEY (FK_PRODUTO_codigo)
-	REFERENCES PRODUTO(codigo)
-	
-);
-
-        
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-        a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
-        (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
-        b) Criar um novo banco de dados para testar a restauracao 
-        (em caso de falha na restauração o grupo não pontuará neste quesito)
-        c) formato .SQL
+INSERT INTO PESSOA(codigo, nome)
+VALUES(010101, 'Iago Oliveira'),
+      (020202, 'Luiz Henrique'),
+      (030303, 'Julia Cardoso'),
+      (040404, 'Lionel Messi'),
+      (050505, 'Arthur Fernandes'),
+      (060606, 'Maikon da Silva'),
+      (070707, 'Ana Julia'),
+      (080808, 'Vanessa de Alcantra');
+	
+SELECT * FROM PESSOA;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+INSERT INTO LOJA(cnpj, nome, telefone, email)
+VALUES(833898, 'Gucci', 31990400, 'roupasgucci@gmail.com'),
+      (10401257, 'Zazzle', 35771747, 'confeczazzle@gmail.com'),
+      (39752353, 'Sacudidos', 37221828, 'sacudidos@gmail.com'),
+      (71354641, 'Reserva', 35502024, 'reserva@gmail.com'),
+      (36226675, 'Nike', 27396558, 'nikebr@gmail.com'),
+      (42274696, 'Adidas', 21966400, 'adidasbr@gmail.com'),
+      (2799216, 'COWBOY STORE', 85950000, 'cowboystore@gmail.com'),
+      (29511391, 'Lacoste', 20090000, 'lascostebr@gmail.com');
+ 
+SELECT * FROM LOJA;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+INSERT INTO FORNECEDOR(cnpj, nome_transportadora, telefone, cep, numero, rua, bairro)
+VALUES(65126600, 'TRANSPORTADORA TRESSI', 30530314, 85906370, 151, 'Avenida Jose Joao Muraro', 'JARDIM PORTO ALEGRE'),
+   (41040017, 'DELLMAR TRANSPORTES', 30123636, 29136519, 432, 'Rua Idalino Carvalho', 'PARQUE INDUSTRIAL'),
+      (48766012, 'ATLAS', 21017300, 95110690, 323, 'Rodovia Rst', 'DESVIO RIZZO'),
+      (11080089, 'ALFA TRANSPORTES EIRELI', 35615100, 13178440, 098, 'Rodovia Adauto Campo', 'JARDIM MANCHESTER'),
+      (24617014, 'JAMEF TRANSPORTES', 21028803, 32210130, 181, 'Rua Doutor Jose Americo', 'CIDADE INDUSTRIAL'),
+      (43603530, 'PATRUS TRANSPORTES', 21911000, 38706215, 308, 'Avenida Juscelino', 'RESIDENCIAL GRAMADO'),
+      (74031027, 'BRASPRESS TRANSPORTES', 21889000, 81350100, 643, 'Rua Joao Bettega', 'CIDADE INDUSTRIAL'),
+      (59171699, 'TNT CARGAS', 30402900, 64224749, 432, 'Rodovia Washington', 'VILA SAO LUIZ');
+SELECT * FROM FORNECEDOR;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+INSERT INTO FUNCIONARIO(codigo, nome, cpf, rg, data_contratacao, telefone)
+VALUES(593485, 'Fellipy Wagmacker', 31871588, 1640575, '2022-01-09', 26314646),
+      (982521, 'Dara Mendes Botecchia', 83600546, 3578845, '2019-07-21', 23079480),
+      (148284, 'Evelyn Pereira Otavio', 03899287, 7373073, '2022-09-12', 27282770),
+      (324988, 'Iara Da Silva Menezes Mendes Botecchia', 24840415, 5766963, '2011-09-22', 35580223),
+      (765546, 'Jussara Da Silva Wagmacker Galdino', 60565825, 2854453, '2020-10-22', 20608710),
+      (135824, 'Evaldo Silva de Oliveira', 28871120, 5373658, '2010-01-11', 36786343),
+      (863633, 'Lucas Lomenge', 75019300, 0611457, '2022-11-20', 23335875),
+      (764343, 'Davi Mendes Botecchia', 80916677, 2404596, '2019-11-21', 37114971);
 
+SELECT * FROM FUNCIONARIO;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+INSERT INTO CLIENTE(codigo, nome, cpf, telefone)
+VALUES(01001, 'Vanderlei da Cunha', 509352042, 30136375),
+     (02002, 'Robson da Silva', 880417080, 36438677),
+     (03003, 'Roni de Oliveira', 327138076, 21830055),
+     (04004, 'Cleide Nascimento', 389772052, 24836835),
+     (05005, 'Seu zé da Conceição', 844307051, 29148601),
+     (06006, 'Maria Clara', 844397051, 23111732),
+     (07007, 'Roberta Galdino', 354989033, 28717025),
+     (08008, 'Vitoria Campos', 116858079, 22881293);
+ 
+SELECT * FROM CLIENTE;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO PRODUTO(codigo, marca, preco)
+VALUES(070777, 'Nike', 79.99),
+      (090999, 'Adidas', 129.99),
+      (040444,'Reserva', 99.99),
+      (020222, 'Nike', 55.50),
+      (056056, 'Nike', 100.50),
+      (027027, 'Zazzle', 349.99),
+      (010111, 'Zazzle', 259.99),
+      (080888, 'Nike', 199.99);
+      (033033, 'COWBOY STORE', 350.49),
+      (060666, 'Sacudidos', 299.99),
+      (012012, 'COWBOY STORE', 550.99),
+      (100100, 'Sacudidos', 199.99)
+
+SELECT * FROM PRODUTO;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+INSERT INTO loja_fornecedor(FK_FORNECEDOR_cnpj, FK_LOJA_cnpj, FK_PRODUTO_codigo, data_hora_compra, forma_de_pagamento, qtd)
+VALUES(11080089, 833898, 040444,'2020-09-09 13:45:55', 'Cartão', 1500),
+      (65126600, 29511391, 070777,'2022-12-15 17:09:21', 'Cartão', 500),
+      (43603530, 39752353, 027027,'2022-01-29 09:30:30', 'Cartão', 90),
+      (74031027, 36226675, 010111,'2013-07-17 18:59:59', 'Dinheiro', 200),
+      (59171699, 71354641, 056056,'2018-06-05 22:10:44', 'Cartão', 450),
+      (24617014, 42274696, 080888,'2016-04-30 16:47:12', 'Dinheiro', 1200),
+      (48766012, 2799216, 020222,'2019-03-19 18:30:31', 'Dinheiro', 60),
+      (41040017, 10401257, 090999,'2015-08-31 14:58:01', 'Cartão', 1150);
+
+SELECT * FROM loja_fornecedor;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+INSERT INTO CLIENTE_FUNCIONARIO(FK_FUNCIONARIO_codigo, FK_CLIENTE_codigo, FK_PRODUTO_codigo, forma_de_pagamento, qtd)
+VALUES(148284, 07007, 027027, 'Cartão', 2),
+     (324988, 04004, 070777, 'Cartão', 1),
+ (764343, 06006, 010111, 'Dinheiro', 1),
+ (135824, 01001, 040444, 'Dinheiro', 1),
+ (593485, 08008, 020222, 'Dinheiro', 2),
+ (765546, 03003, 080888, 'Cartão', 2),
+ (863633, 05005, 090999, 'Dinheiro', 3),
+ (982521, 06006, 056056, 'Cartão', 3);
+SELECT * FROM CLIENTE_FUNCIONARIO;	
+	
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
     OBS: Usar o colab para apresentar os resultados que devem incluir as instruções SQL + resultados em forma de tabela.<br>
