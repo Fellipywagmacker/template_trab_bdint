@@ -272,8 +272,10 @@ SELECT * FROM CLIENTE_FUNCIONARIO;
 	
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
-    OBS: Usar o colab para apresentar os resultados que devem incluir as instruções SQL + resultados em forma de tabela.<br>
-#### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
+
+TABELA PESSOA<br>
+       
+![Alt text](TABELA_PESSOA.png "Tabela Pessoa")
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
