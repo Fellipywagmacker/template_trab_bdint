@@ -293,7 +293,7 @@ TABELA FORNECEDOR<br>
 
 TABELA LOJA_FORNECEDOR<br>
        
-![Alt text](LOJA_FORNECEDOR.png "Tabela Loja_Fornecedor")<br>	
+![Alt text](TABELA_LOJA_FORNECEDOR.png "Tabela Loja_Fornecedor")<br>	
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------------	
 TABELA CLIENTE<br>
