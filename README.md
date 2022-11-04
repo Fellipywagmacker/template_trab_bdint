@@ -275,7 +275,46 @@ SELECT * FROM CLIENTE_FUNCIONARIO;
 
 TABELA PESSOA<br>
        
-![Alt text](TABELA_PESSOA.png "Tabela Pessoa")
+![Alt text](TABELA_PESSOA.png "Tabela Pessoa")<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+TABELA LOJA<br>
+       
+![Alt text](TABELA_LOJA.png "Tabela Loja")<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+TABELA FORNECEDOR<br>
+       
+![Alt text](TABELA_FORNECEDOR.png "Tabela Fornecedor")<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TABELA LOJA_FORNECEDOR<br>
+       
+![Alt text](LOJA_FORNECEDOR.png "Tabela Loja_Fornecedor")<br>	
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+TABELA CLIENTE<br>
+       
+![Alt text](TABELA_CLIENTE.png "Tabela Cliente")<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+TABELA FUNCIONARIO<br>
+       
+![Alt text](TABELA_FUNCIONARIO.png "Tabela Funcionario")<br>]
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+TABELA CLIENTE_FUNCIONARIO<br>
+       
+![Alt text](TABELA_CLIENTE_FUNCIONARIO.png "Tabela Cliente_Funcionario")<br>
+	
+	
+	
+	
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
