@@ -319,6 +319,16 @@ TABELA CLIENTE_FUNCIONARIO<br>
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+
+SELECT * FROM FUNCIONARIO WHERE data_contratacao >= '2019-09-22';<br>
+
+SELECT * FROM CLIENTE_FUNCIONARIO WHERE forma_de_pagamento = 'Cartão';<br>
+
+SELECT * FROM LOJA_FORNECEDOR WHERE forma_de_pagamento = 'Dinheiro' and qtd > 90;<br>
+
+SELECT * FROM PRODUTO where marca = 'Adidas' or preco < 150.00;<br>
+
+SELECT * FROM CLIENTE WHERE codigo < 6006 and nome like '%de%';
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
