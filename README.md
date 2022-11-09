@@ -338,6 +338,8 @@ SELECT * FROM PRODUTO where marca = 'Adidas' or preco < 150.00;<br>
 
 SELECT * FROM CLIENTE WHERE codigo < 6006 and nome like '%de%';<br>
 	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 #### 9.3 CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)<br>
 a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not<br>
 	
@@ -359,6 +361,8 @@ SELECT * FROM CLIENTE_FUNCIONARIO where fk_funcionario_codigo < 700000 or qtd = 
 	
 SELECT * FROM FUNCIONARIO where nome like '%Me%' or data_contratacao <= '2020-10-22';<br>
 	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
 b) Criar no mínimo 3 consultas com operadores aritméticos 
 	
 SELECT preco - (preco*0.1) as "Preço com desconto de 10%" FROM PRODUTO
@@ -370,6 +374,8 @@ SELECT qtd + (qtd * 360) as "Quantidade de produtos comprados em um ano" FROM LO
 --------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	
 SELECT sum(qtd ) * count(fk_cliente_codigo) AS "Quantidade de produtos por cliente" FROM CLIENTE_FUNCIONARIO<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	
 c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas	
 	
