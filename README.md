@@ -318,31 +318,70 @@ TABELA CLIENTE_FUNCIONARIO<br>
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
-#### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+#### 9.2 CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
 
 SELECT * FROM FUNCIONARIO WHERE data_contratacao >= '2019-09-22';<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 SELECT * FROM CLIENTE_FUNCIONARIO WHERE forma_de_pagamento = 'Cartão';<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 SELECT * FROM LOJA_FORNECEDOR WHERE forma_de_pagamento = 'Dinheiro' and qtd > 90;<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 SELECT * FROM PRODUTO where marca = 'Adidas' or preco < 150.00;<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
-SELECT * FROM CLIENTE WHERE codigo < 6006 and nome like '%de%';
-#### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)<br>
+SELECT * FROM CLIENTE WHERE codigo < 6006 and nome like '%de%';<br>
+	
+#### 9.3 CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)<br>
 a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not<br>
+	
 SELECT * FROM fornecedor where nome_transportadora like '%D%' or rua like '%da%'<br>
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
 
 SELECT * FROM loja_fornecedor where fk_produto_codigo > 20222 and forma_de_pagamento = 'Dinheiro';<br>
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
 SELECT * FROM LOJA WHERE nome like '%i%' and email like '%pa%';<br>
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
 SELECT * FROM CLIENTE_FUNCIONARIO where fk_funcionario_codigo < 700000 or qtd = 1;<br>
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
 SELECT * FROM FUNCIONARIO where nome like '%Me%' or data_contratacao <= '2020-10-22';<br>
-    b) Criar no mínimo 3 consultas com operadores aritméticos 
-    c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
+	
+b) Criar no mínimo 3 consultas com operadores aritméticos 
+	
+SELECT preco - (preco*0.1) as "Preço com desconto de 10%" FROM PRODUTO
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+SELECT qtd + (qtd * 360) as "Quantidade de produtos comprados em um ano" FROM LOJA_FORNECEDOR
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+SELECT sum(qtd ) * count(fk_cliente_codigo) AS "Quantidade de produtos por cliente" FROM CLIENTE_FUNCIONARIO<br>
+	
+c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas	
+	
+SELECT codigo AS cod_funcionario, nome AS nome_completo, data_contratacao AS data_contratacao_do_funcionario FROM FUNCIONARIO
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+SELECT marca AS marca_do_produto, preco AS valor FROM PRODUTO
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+SELECT codigo AS numero, nome AS nome_completo FROM CLIENTE
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     b) Criar uma consulta para cada tipo de função data apresentada.
