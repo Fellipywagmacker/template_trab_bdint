@@ -388,6 +388,8 @@ SELECT marca AS marca_do_produto, preco AS valor FROM PRODUTO
 --------------------------------------------------------------------------------------------------------------------------------------------------------------	
 	
 SELECT codigo AS numero, nome AS nome_completo FROM CLIENTE
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
     a) Criar outras 5 consultas que envolvam like ou ilike
     b) Criar uma consulta para cada tipo de função data apresentada.
