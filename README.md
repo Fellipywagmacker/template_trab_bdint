@@ -390,9 +390,41 @@ SELECT marca AS marca_do_produto, preco AS valor FROM PRODUTO
 SELECT codigo AS numero, nome AS nome_completo FROM CLIENTE
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------	
-#### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
-    a) Criar outras 5 consultas que envolvam like ou ilike
-    b) Criar uma consulta para cada tipo de função data apresentada.
+#### 9.4CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
+a) Criar outras 5 consultas que envolvam like ou ilike
+
+SELECT * FROM LOJA where nome like '%os%';
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM fornecedor where nome_transportadora ilike 'T%';
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM PRODUTO where marca like '%e';
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM CLIENTE where nome ilike '%C%'
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM FUNCIONARIO where nome like '%W%'
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+b) Criar uma consulta para cada tipo de função data apresentada.
+
+SELECT current_date - (data_contratacao) as "dias_trabalhados" from FUNCIONARIO;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT date_part('year',(age(current_date,data_contratacao))) as anos_trabalhados from funcionario
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT (age(current_date, data_contratacao)) as intervalo_trabalhado from funcionario
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
