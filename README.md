@@ -440,20 +440,82 @@ SELECT (age(current_date, data_contratacao)) as intervalo_trabalhado from funcio
 
 #### 9.5 INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
 a) Criar minimo 3 de exclusão
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 DELETE FROM LOJA_FORNECEDOR where qtd < 100;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------  
+
 DELETE FROM CLIENTE_FUNCIONARIO where forma_de_pagamento = 'Cartão';
+					    
+--------------------------------------------------------------------------------------------------------------------------------------------------------					    
 DELETE FROM LOJA_FORNECEDOR where forma_de_pagamento = 'Dinheiro' or qtd < 400;
     
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
 b) Criar minimo 3 de atualização
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+
 UPDATE PESSOA set nome = 'Cristiano Ronaldo' where codigo = 50505;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+
 UPDATE PRODUTO set marca = 'Adidas' where codigo = 56056;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+
 UPDATE PRODUTO set preco = 199.99 where codigo = 20222;
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 #### 9.6 CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
-    a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
-    b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
+b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
+SELECT nome, cpf from CLIENTE
+ORDER BY nome;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT CLIENTE.nome as nome_cliente, FUNCIONARIO.nome as nome_funcionario, CLIENTE_FUNCIONARIO.forma_de_pagamento
+FROM FUNCIONARIO 
+INNER JOIN CLIENTE_FUNCIONARIO
+ON (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO)
+INNER JOIN CLIENTE
+ON (CLIENTE.codigo = CLIENTE_FUNCIONARIO.FK_CLIENTE_CODIGO)
+ORDER BY nome_funcionario;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+
+SELECT LOJA.nome as nome_loja, FORNECEDOR.nome_transportadora, LOJA_FORNECEDOR.data_hora_compra
+FROM LOJA
+INNER JOIN LOJA_FORNECEDOR
+ON (LOJA.cnpj = LOJA_FORNECEDOR.FK_LOJA_CNPJ)
+INNER JOIN FORNECEDOR
+ON (FORNECEDOR.cnpj = LOJA_FORNECEDOR.FK_FORNECEDOR_CNPJ)
+ORDER BY nome_transportadora;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+
+SELECT CLIENTE.nome as nome_cliente, PRODUTO.marca as marca_produto, PRODUTO.preco as preço_produto,
+CLIENTE_FUNCIONARIO.qtd as qtd_comprada
+FROM CLIENTE
+INNER JOIN CLIENTE_FUNCIONARIO
+ON (CLIENTE.codigo = CLIENTE_FUNCIONARIO.FK_CLIENTE_CODIGO)
+INNER JOIN PRODUTO
+ON (PRODUTO.codigo = CLIENTE_FUNCIONARIO.FK_PRODUTO_CODIGO)
+ORDER BY nome_cliente;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+
+SELECT FUNCIONARIO.nome as nome_funcionario, PRODUTO.codigo as cod_produto, CLIENTE_FUNCIONARIO.forma_de_pagamento
+FROM PRODUTO
+INNER JOIN CLIENTE_FUNCIONARIO
+ON (PRODUTO.codigo = CLIENTE_FUNCIONARIO.FK_PRODUTO_CODIGO)
+INNER JOIN FUNCIONARIO
+ON (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO)
+ORDER BY nome_funcionario;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
     a) Criar minimo 2 envolvendo algum tipo de junção
 
