@@ -588,9 +588,40 @@ GROUP BY codigo_cliente, nome_cliente, cpf_cliente, nome_funcionario, rg_funcina
    a) Criar minimo 1 de cada tipo
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
-        a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
-        b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
+b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE VIEW nome_cpf_e_telefone as select nome, cpf, telefone  
+FROM cliente;
+SELECT * FROM nome_cpf_e_telefone;
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE VIEW cnpj_loja_cnpj_fornecedor_cod_produto as select fk_loja_cnpj, fk_fornecedor_cnpj, fk_produto_codigo 
+FROM loja_fornecedor;
+SELECT * FROM cnpj_loja_cnpj_fornecedor_cod_produto;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE VIEW cpf_rg_e_telefone as select cpf, rg, telefone  
+FROM funcionario;
+SELECT * FROM cpf_rg_e_telefone;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE VIEW transportadora_rua_e_bairro as select nome_transportadora, rua, bairro  
+FROM fornecedor;
+SELECT * FROM transportadora_rua_e_bairro;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+CREATE VIEW nome_e_email as select nome, email  
+FROM loja;
+SELECT * FROM nome_e_email;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
      a) Criar minimo 1 envolvendo GROUP BY
      b) Criar minimo 1 envolvendo algum tipo de junção
