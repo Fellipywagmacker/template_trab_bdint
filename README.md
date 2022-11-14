@@ -516,11 +516,76 @@ ON (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO)
 ORDER BY nome_funcionario;
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-#### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
-    a) Criar minimo 2 envolvendo algum tipo de junção
+#### 9.7 CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
+a) Criar minimo 2 envolvendo algum tipo de junção
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+SELECT CLIENTE.nome as nome_cliente, FUNCIONARIO.nome as nome_funcionario, CLIENTE_FUNCIONARIO.forma_de_pagamento
+FROM CLIENTE
+INNER JOIN CLIENTE_FUNCIONARIO
+ON (CLIENTE.codigo = CLIENTE_FUNCIONARIO.FK_CLIENTE_CODIGO)
+INNER JOIN FUNCIONARIO
+ON (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO)
+GROUP BY  nome_cliente, nome_funcionario,forma_de_pagamento;
 
-#### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-    a) Criar minimo 1 de cada tipo
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+SELECT FORNECEDOR.nome_transportadora, PRODUTO.marca, PRODUTO.preco as preco_produto,
+LOJA_FORNECEDOR.data_hora_compra
+FROM FORNECEDOR
+INNER JOIN LOJA_FORNECEDOR
+ON (FORNECEDOR.cnpj = LOJA_FORNECEDOR.FK_FORNECEDOR_CNPJ)
+INNER JOIN PRODUTO
+ON (PRODUTO.codigo = LOJA_FORNECEDOR.FK_PRODUTO_CODIGO)
+GROUP BY nome_transportadora, preco, marca, data_hora_compra;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+SELECT CLIENTE.nome as nome_cliente, PRODUTO.marca as marca_produto_comprado, 
+CLIENTE_FUNCIONARIO.qtd qtd_comprada
+FROM CLIENTE
+INNER JOIN CLIENTE_FUNCIONARIO
+ON (CLIENTE.codigo = CLIENTE_FUNCIONARIO.FK_CLIENTE_CODIGO)
+INNER JOIN PRODUTO
+ON (PRODUTO.codigo = CLIENTE_FUNCIONARIO.FK_PRODUTO_CODIGO)
+GROUP BY nome_cliente, marca_produto_comprado, qtd;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT FORNECEDOR.cep as cep_fornecedor, FORNECEDOR.rua as rua_fornecedor, LOJA.nome as nome_loja, LOJA.email as email_loja,
+LOJA_FORNECEDOR.qtd
+FROM FORNECEDOR
+INNER JOIN LOJA_FORNECEDOR
+ON (FORNECEDOR.cnpj = LOJA_FORNECEDOR.FK_FORNECEDOR_CNPJ)
+INNER JOIN LOJA
+ON (LOJA.cnpj = LOJA_FORNECEDOR.FK_LOJA_CNPJ)
+GROUP BY cep_fornecedor, rua, nome_loja, email_loja, qtd;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+SELECT LOJA_FORNECEDOR.FK_LOJA_CNPJ as cnpj_loja, LOJA.email as email_loja, LOJA.telefone as telefone_loja, PRODUTO.codigo as codigo_produto,
+PRODUTO.preco as preco_produto
+FROM LOJA 
+INNER JOIN LOJA_FORNECEDOR
+ON (LOJA.cnpj = LOJA_FORNECEDOR.FK_LOJA_CNPJ)
+INNER JOIN PRODUTO
+ON (PRODUTO.codigo = LOJA_FORNECEDOR.FK_PRODUTO_CODIGO)
+GROUP BY cnpj_loja, email_loja, telefone_loja, codigo_produto, preco_produto;
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+SELECT CLIENTE_FUNCIONARIO.FK_CLIENTE_CODIGO as codigo_cliente, CLIENTE.nome as nome_cliente, 
+CLIENTE.cpf as cpf_cliente, FUNCIONARIO.nome as nome_funcionario, FUNCIONARIO.rg as rg_funcinario, FUNCIONARIO.data_contratacao
+FROM CLIENTE
+INNER JOIN CLIENTE_FUNCIONARIO
+ON (CLIENTE.codigo = CLIENTE_FUNCIONARIO.FK_CLIENTE_CODIGO)
+INNER JOIN FUNCIONARIO
+ON (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO)
+GROUP BY codigo_cliente, nome_cliente, cpf_cliente, nome_funcionario, rg_funcinario, data_contratacao
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+#### 9.8 CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
+   a) Criar minimo 1 de cada tipo
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
         a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
