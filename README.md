@@ -72,7 +72,7 @@ Fornecedor: Campo que armazena informações sobre os fornecedores.<br>
 ### 7 MODELO FÍSICO<br>
 	
 CREATE TABLE PESSOA(
-codigo integer,
+codigo integer PRIMARY KEY,
 nome varchar(80)
 );
 
@@ -127,28 +127,27 @@ preco float
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-CREATE TABLE LOJA_FORNECEDOR(
-FK_LOJA_cnpj integer,
-FK_FORNECEDOR_cnpj integer,
+CREATE TABLE LOJA_FORNECEDOR( 
+FK_LOJA_cnpj integer, 
+FK_FORNECEDOR_cnpj integer, 
 FK_PRODUTO_codigo integer,
-data_hora_compra timestamp,
-forma_de_pagamento varchar(20),
+FK_PESSOA_codigo integer,
+data_hora_compra timestamp, 
+forma_de_pagamento varchar(20), 
 qtd integer,
 
-FOREIGN KEY(FK_LOJA_cnpj)
-REFERENCES LOJA(cnpj),
-FOREIGN KEY(FK_FORNECEDOR_cnpj)
-REFERENCES FORNECEDOR(cnpj),
-FOREIGN KEY(FK_PRODUTO_codigo)
-REFERENCES PRODUTO(codigo)
-);
-	
+FOREIGN KEY(FK_LOJA_cnpj) REFERENCES LOJA(cnpj), 
+FOREIGN KEY(FK_FORNECEDOR_cnpj) REFERENCES FORNECEDOR(cnpj), 
+FOREIGN KEY(FK_PRODUTO_codigo) REFERENCES PRODUTO(codigo),
+FOREIGN KEY(FK_PESSOA_codigo) REFERENCES PESSOA(codigo)
+);	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 CREATE TABLE CLIENTE_FUNCIONARIO(
 FK_FUNCIONARIO_codigo integer,
 FK_CLIENTE_codigo integer,
 FK_PRODUTO_codigo integer,
+FK_PESSOA_codigo integer,
 forma_de_pagamento varchar(20),
 qtd integer,
 
@@ -157,7 +156,9 @@ REFERENCES FUNCIONARIO(codigo),
 FOREIGN KEY (FK_CLIENTE_codigo)
 REFERENCES CLIENTE(codigo),
 FOREIGN KEY (FK_PRODUTO_codigo)
-REFERENCES PRODUTO(codigo)
+REFERENCES PRODUTO(codigo),
+FOREIGN KEY (FK_PESSOA_CODIGO)
+REFERENCES PESSOA(codigo)
 );
 
        
@@ -171,7 +172,6 @@ VALUES(010101, 'Iago Oliveira'),
       (060606, 'Maikon da Silva'),
       (070707, 'Ana Julia'),
       (080808, 'Vanessa de Alcantra');
-	
 SELECT * FROM PESSOA;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -184,8 +184,7 @@ VALUES(833898, 'Gucci', 31990400, 'roupasgucci@gmail.com'),
       (36226675, 'Nike', 27396558, 'nikebr@gmail.com'),
       (42274696, 'Adidas', 21966400, 'adidasbr@gmail.com'),
       (2799216, 'COWBOY STORE', 85950000, 'cowboystore@gmail.com'),
-      (29511391, 'Lacoste', 20090000, 'lascostebr@gmail.com');
- 
+      (29511391, 'Lacoste', 20090000, 'lascostebr@gmail.com'); 
 SELECT * FROM LOJA;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -212,7 +211,6 @@ VALUES(593485, 'Fellipy Wagmacker', 31871588, 1640575, '2022-01-09', 26314646),
       (135824, 'Evaldo Silva de Oliveira', 28871120, 5373658, '2010-01-11', 36786343),
       (863633, 'Lucas Lomenge', 75019300, 0611457, '2022-11-20', 23335875),
       (764343, 'Davi Mendes Botecchia', 80916677, 2404596, '2019-11-21', 37114971);
-
 SELECT * FROM FUNCIONARIO;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------	
@@ -226,8 +224,7 @@ VALUES(01001, 'Vanderlei da Cunha', 509352042, 30136375),
      (06006, 'Maria Clara', 844397051, 23111732),
      (07007, 'Roberta Galdino', 354989033, 28717025),
      (08008, 'Vitoria Campos', 116858079, 22881293);
- 
-SELECT * FROM CLIENTE;
+ SELECT * FROM CLIENTE;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -240,34 +237,32 @@ VALUES(070777, 'Nike', 79.99),
       (027027, 'Zazzle', 349.99), 
       (010111, 'Zazzle', 259.99), 
       (080888, 'Nike', 199.99);
-
 SELECT * FROM PRODUTO;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-INSERT INTO loja_fornecedor(FK_FORNECEDOR_cnpj, FK_LOJA_cnpj, FK_PRODUTO_codigo, data_hora_compra, forma_de_pagamento, qtd)
-VALUES(11080089, 833898, 040444,'2020-09-09 13:45:55', 'Cartão', 1500),
-      (65126600, 29511391, 070777,'2022-12-15 17:09:21', 'Cartão', 500),
-      (43603530, 39752353, 027027,'2022-01-29 09:30:30', 'Cartão', 90),
-      (74031027, 36226675, 010111,'2013-07-17 18:59:59', 'Dinheiro', 200),
-      (59171699, 71354641, 056056,'2018-06-05 22:10:44', 'Cartão', 450),
-      (24617014, 42274696, 080888,'2016-04-30 16:47:12', 'Dinheiro', 1200),
-      (48766012, 2799216, 020222,'2019-03-19 18:30:31', 'Dinheiro', 60),
-      (41040017, 10401257, 090999,'2015-08-31 14:58:01', 'Cartão', 1150);
-
+INSERT INTO LOJA_FORNECEDOR(FK_LOJA_cnpj,FK_FORNECEDOR_cnpj, FK_PRODUTO_codigo, FK_PESSOA_codigo, data_hora_compra, forma_de_pagamento, qtd)
+VALUES(833898, 11080089, 040444, 080808, '2020-09-09 13:45:55', 'Cartão', 1500),
+      (29511391, 65126600, 070777, 030303, '2022-12-15 17:09:21', 'Cartão', 500),
+      (39752353, 43603530, 027027, 060606, '2022-01-29 09:30:30', 'Cartão', 90),
+      (36226675, 74031027, 010111, 010101, '2013-07-17 18:59:59', 'Dinheiro', 200),
+      (71354641, 59171699, 056056, 070707, '2018-06-05 22:10:44', 'Cartão', 450),
+      (42274696, 24617014, 080888, 050505, '2016-04-30 16:47:12', 'Dinheiro', 1200),
+      (2799216, 48766012, 020222, 020202, '2019-03-19 18:30:31', 'Dinheiro', 60),
+      (10401257, 41040017, 090999, 040404, '2015-08-31 14:58:01', 'Cartão', 1150);
 SELECT * FROM loja_fornecedor;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-INSERT INTO CLIENTE_FUNCIONARIO(FK_FUNCIONARIO_codigo, FK_CLIENTE_codigo, FK_PRODUTO_codigo, forma_de_pagamento, qtd)
-VALUES(148284, 07007, 027027, 'Cartão', 2),
-     (324988, 04004, 070777, 'Cartão', 1),
- (764343, 06006, 010111, 'Dinheiro', 1),
- (135824, 01001, 040444, 'Dinheiro', 1),
- (593485, 08008, 020222, 'Dinheiro', 2),
- (765546, 03003, 080888, 'Cartão', 2),
- (863633, 05005, 090999, 'Dinheiro', 3),
- (982521, 06006, 056056, 'Cartão', 3);
+INSERT INTO CLIENTE_FUNCIONARIO(FK_FUNCIONARIO_codigo, FK_CLIENTE_codigo, FK_PRODUTO_codigo, FK_PESSOA_codigo, forma_de_pagamento, qtd)
+VALUES(148284, 07007, 027027, 060606, 'Cartão', 2),
+      (324988, 04004, 070777, 030303, 'Cartão', 1),
+      (764343, 06006, 010111, 070707, 'Dinheiro', 1),
+      (135824, 01001, 040444, 010101, 'Dinheiro', 1),
+      (593485, 08008, 020222, 040404, 'Dinheiro', 2),
+      (765546, 03003, 080888, 020202, 'Cartão', 2),
+      (863633, 05005, 090999, 080808, 'Dinheiro', 3),
+      (982521, 06006, 056056, 060606, 'Cartão', 3);
 SELECT * FROM CLIENTE_FUNCIONARIO;	
 	
 
@@ -412,6 +407,23 @@ SELECT * FROM CLIENTE where nome ilike '%C%'
 SELECT * FROM FUNCIONARIO where nome like '%W%'
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM PESSOA where nome like '%na%';
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM FORNECEDOR where nome_transportadora ilike '%C%' or bairro like 'C%';
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM PRODUTO where marca like 'Z%' or marca like '%s';
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM FUNCIONARIO where nome ilike '%y%' or nome ilike 'e%';
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 b) Criar uma consulta para cada tipo de função data apresentada.
 
 SELECT current_date - (data_contratacao) as "dias_trabalhados" from FUNCIONARIO;
@@ -426,11 +438,19 @@ SELECT (age(current_date, data_contratacao)) as intervalo_trabalhado from funcio
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
-    a) Criar minimo 3 de exclusão
-    b) Criar minimo 3 de atualização
+#### 9.5 INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
+a) Criar minimo 3 de exclusão
+DELETE FROM LOJA_FORNECEDOR where qtd < 100;
+DELETE FROM CLIENTE_FUNCIONARIO where forma_de_pagamento = 'Cartão';
+DELETE FROM LOJA_FORNECEDOR where forma_de_pagamento = 'Dinheiro' or qtd < 400;
+    
+b) Criar minimo 3 de atualização
+UPDATE PESSOA set nome = 'Cristiano Ronaldo' where codigo = 50505;
+UPDATE PRODUTO set marca = 'Adidas' where codigo = 56056;
+UPDATE PRODUTO set preco = 199.99 where codigo = 20222;
 
-#### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
+
+#### 9.6 CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
     b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
 
