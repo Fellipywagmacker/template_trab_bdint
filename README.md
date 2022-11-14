@@ -631,9 +631,29 @@ SELECT * FROM nome_e_email;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
  
-#### 9.10	SUBCONSULTAS (Mínimo 4)<br>
-     a) Criar minimo 1 envolvendo GROUP BY
-     b) Criar minimo 1 envolvendo algum tipo de junção
+#### 9.10 SUBCONSULTAS (Mínimo 4)<br>
+
+a) Criar minimo 1 envolvendo GROUP BY
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+	
+Select * from cliente_funcionario
+where qtd in(3, 2);
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+select * from loja_fornecedor where qtd in(1500, 450);*/
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+select fornecedor.nome_transportadora as nome_fornecedor, data_hora_compra 
+from fornecedor
+inner join loja_fornecedor
+on (fornecedor.cnpj = loja_fornecedor.fk_fornecedor_cnpj)
+where fornecedor.cnpj in (select distinct numero from fornecedor)
+group by nome_fornecedor, data_hora_compra
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------------	
+b) Criar minimo 1 envolvendo algum tipo de junção
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
