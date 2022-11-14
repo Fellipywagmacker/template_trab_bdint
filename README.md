@@ -589,6 +589,15 @@ GROUP BY codigo_cliente, nome_cliente, cpf_cliente, nome_funcionario, rg_funcina
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
+select CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO as cod_funcionario, FUNCIONARIO.nome as nome_funcionario
+from FUNCIONARIO
+inner join CLIENTE_FUNCIONARIO
+on (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+	
 b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
