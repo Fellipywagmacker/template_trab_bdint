@@ -400,11 +400,11 @@ SELECT * FROM PRODUTO where marca like '%e';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SELECT * FROM CLIENTE where nome ilike '%C%'
+SELECT * FROM CLIENTE where nome ilike '%C%';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SELECT * FROM FUNCIONARIO where nome like '%W%'
+SELECT * FROM FUNCIONARIO where nome like '%W%';
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -581,13 +581,13 @@ INNER JOIN CLIENTE_FUNCIONARIO
 ON (CLIENTE.codigo = CLIENTE_FUNCIONARIO.FK_CLIENTE_CODIGO)
 INNER JOIN FUNCIONARIO
 ON (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO)
-GROUP BY codigo_cliente, nome_cliente, cpf_cliente, nome_funcionario, rg_funcinario, data_contratacao
+GROUP BY codigo_cliente, nome_cliente, cpf_cliente, nome_funcionario, rg_funcinario, data_contratacao;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 #### 9.8 CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
    a) Criar minimo 1 de cada tipo
 
-#### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
+#### 9.9 CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -641,7 +641,7 @@ where qtd in(3, 2);
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
-select * from loja_fornecedor where qtd in(1500, 450);*/
+select * from loja_fornecedor where qtd in(1500, 450);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -650,7 +650,7 @@ from fornecedor
 inner join loja_fornecedor
 on (fornecedor.cnpj = loja_fornecedor.fk_fornecedor_cnpj)
 where fornecedor.cnpj in (select distinct numero from fornecedor)
-group by nome_fornecedor, data_hora_compra
+group by nome_fornecedor, data_hora_compra;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------	
 b) Criar minimo 1 envolvendo algum tipo de junção
