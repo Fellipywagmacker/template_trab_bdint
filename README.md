@@ -131,7 +131,6 @@ CREATE TABLE LOJA_FORNECEDOR(
 FK_LOJA_cnpj integer, 
 FK_FORNECEDOR_cnpj integer, 
 FK_PRODUTO_codigo integer,
-FK_PESSOA_codigo integer,
 data_hora_compra timestamp, 
 forma_de_pagamento varchar(20), 
 qtd integer,
