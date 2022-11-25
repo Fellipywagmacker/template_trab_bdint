@@ -46,7 +46,7 @@ gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
 
  ### 5.MODELO CONCEITUAL<br>
        
-![Alt text](Conceitual_grupo.png "Modelo Conceitual")
+![Alt text](Conceitual.png "Modelo Conceitual")
     
        
 #### 5.1 Validação do Modelo Conceitual
