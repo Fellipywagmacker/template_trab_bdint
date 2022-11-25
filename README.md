@@ -302,13 +302,13 @@ VALUES(282828, 353535, 027027, 'Cartão', 2),
       (262626, 333333, 020222, 'Dinheiro', 3),
       (232323, 343434, 080888, 'Cartão', 4),
       (272727, 373737, 090999, 'Dinheiro', 3),
-      (222222, 393939, 056056, 'Cartão', 5);
-      (252525, 363636, 030858, 'Cartão', 3),
+      (222222, 393939, 056056, 'Cartão', 5),
+      (252525, 363636, 780780, 'Cartão', 3),
       (242424, 383838, 025762, 'Dinheiro', 2);
 SELECT * FROM CLIENTE_FUNCIONARIO;
 
 
-### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
+### 9 TABELAS E PRINCIPAIS CONSULTAS<br>
 
 TABELA PESSOA<br>
        
@@ -627,8 +627,28 @@ GROUP BY codigo_cliente, nome_cliente, cpf_cliente, nome_funcionario, rg_funcina
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 #### 9.8 CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-   a) Criar minimo 1 de cada tipo
+a) Criar minimo 1 de cada tipo
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
+SELECT nome as nome_cliente, cliente_funcionario.fk_cliente_codigo as cod_cliente, cliente_funcionario.fk_produto_codigo as cod_prod_comprado
+from cliente
+LEFT OUTER JOIN cliente_funcionario
+on (cliente.codigo = cliente_funcionario.fk_cliente_codigo);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT FK_LOJA_CNPJ, LOJA.telefone as tel_loja, LOJA.email as email_loja
+FROM LOJA_FORNECEDOR
+RIGHT OUTER JOIN LOJA
+ON (LOJA.CNPJ = LOJA_FORNECEDOR.FK_LOJA_CNPJ);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM LOJA 
+FULL OUTER JOIN LOJA_FORNECEDOR 
+ON (LOJA.cnpj = LOJA_FORNECEDOR.FK_LOJA_CNPJ);
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 #### 9.9 CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
 --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -687,15 +707,28 @@ select * from loja_fornecedor where qtd in(1500, 450);
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 
-select fornecedor.nome_transportadora as nome_fornecedor, data_hora_compra 
+select fornecedor.nome_transportadora, loja_fornecedor.data_hora_compra 
 from fornecedor
 inner join loja_fornecedor
 on (fornecedor.cnpj = loja_fornecedor.fk_fornecedor_cnpj)
-where fornecedor.cnpj in (select distinct numero from fornecedor)
-group by nome_fornecedor, data_hora_compra;
+where fornecedor.numero in (select distinct numero from fornecedor)
+group by nome_transportadora, data_hora_compra;
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------	
 b) Criar minimo 1 envolvendo algum tipo de junção
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+select cliente.nome as nome_cliente, funcionario.nome as nome_funcionario, cliente_funcionario.forma_de_pagamento 
+from cliente
+inner join cliente_funcionario
+on (cliente.codigo = cliente_funcionario.fk_cliente_codigo)
+inner join funcionario
+on (funcionario.codigo = cliente_funcionario.fk_funcionario_codigo)
+where cliente_funcionario.qtd in (select distinct qtd from cliente_funcionario)
+group by nome_cliente, nome_funcionario, forma_de_pagamento;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
