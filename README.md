@@ -67,7 +67,7 @@ Fornecedor: Campo que armazena informações sobre os fornecedores.<br>
 
 ### 6 MODELO LÓGICO<br>
 
-![Alt text](Lógico_grupo.png "Modelo Lógico")
+![Alt text](Lógico.png "Modelo Lógico")
 
 ### 7 MODELO FÍSICO<br>
 	
