@@ -115,7 +115,7 @@ codigo integer PRIMARY KEY,
 nome varchar(80),
 cpf integer,
 telefone integer
-)
+);
 	
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -558,6 +558,19 @@ ON (FUNCIONARIO.codigo = CLIENTE_FUNCIONARIO.FK_FUNCIONARIO_CODIGO)
 ORDER BY nome_funcionario;
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT FORNECEDOR.nome_transportadora, FORNECEDOR.cep as cep_fornecedor, 
+FORNECEDOR.rua as rua_fornecedor, FORNECEDOR.bairro as bairro_fornecedor,
+LOJA.email email_loja, LOJA.telefone as telefone_loja, LOJA_fornecedor.FK_LOJA_CNPJ
+from fornecedor
+inner join LOJA_FORNECEDOR
+ON (FORNECEDOR.cnpj = LOJA_FORNECEDOR.FK_FORNECEDOR_CNPJ)
+inner join loja
+ON (LOJA.cnpj = LOJA_FORNECEDOR.FK_LOJA_CNPJ)
+ORDER BY rua_fornecedor
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
 #### 9.7 CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
 a) Criar minimo 2 envolvendo algum tipo de junção
 --------------------------------------------------------------------------------------------------------------------------------------------------------
